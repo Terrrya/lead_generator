@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-  <h1>INDEX</h1>
+  <h1>Lead Generator</h1>
+  <p>To get started, I need all the following information</p>
+  {% include "includes/form.html" %}
 {% endblock %}
