@@ -1,4 +1,5 @@
 from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
 from django import forms
 
 
@@ -23,3 +24,13 @@ class GeneratorForm(forms.Form):
     helper.form_class = "form-horizontal"
     helper.label_class = "col-lg-1"
     helper.field_class = "col-lg-11 shadow bg-white rounded p-0 m-0"
+    helper.layout = Layout(
+        "keywords",
+        "location",
+        "leads_num",
+        Submit(
+            "submit",
+            "Submit",
+            css_class="btn btn-primary shadow rounded",
+        ),
+    )

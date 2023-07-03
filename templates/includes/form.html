@@ -4,8 +4,8 @@
     <p class="text-danger">Error</p>
 {% endif %}
 
-<form method="post" class="bg-light">
+<form method="post" {% if request.path == "/accounts/login/" %}action="{% url 'login' %}"{% endif %}>
   {% csrf_token %}
   {% crispy form %}
-  <input class="btn btn-primary" type="submit" value="Submit">
+{#  <input type="submit" value="Submit" class="btn btn-primary" >#}
 </form>
