@@ -4,4 +4,44 @@
   <h1>Lead Generator</h1>
   <p>To get started, I need all the following information</p>
   {% include "includes/form.html" %}
+  {% if message %}
+    <h2>{{ message }}</h2>
+  {% else %}
+    {% if request.method == "POST" %}
+      <table class="table table-striped mb-0">
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Url</th>
+          <th>Rating</th>
+          <th>Location</th>
+        </tr>
+        {% for lead in leads %}
+          <tr>
+            <td>
+              {{ lead.name }}
+            </td>
+            <td>
+              {{ lead.address }}
+            </td>
+            <td>
+              {{ lead.phone }}
+            </td>
+            <td>
+              {{ lead.site_url }}
+            </td>
+            <td>
+              {{ lead.rating }}
+            </td>
+            <td>
+              {{ lead.location }}
+            </td>
+          </tr>
+        {% empty %}
+          <br>
+        {% endfor %}
+      </table>
+    {% endif %}
+  {% endif %}
 {% endblock %}
