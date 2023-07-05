@@ -16,7 +16,7 @@ class GeneratorForm(forms.Form):
     )
     leads_num = forms.ChoiceField(
         label="Lead num:",
-        choices=list(zip(range(51), range(51))),
+        choices=list(zip(range(201), range(201))),
         required=True,
         initial=50,
     )
