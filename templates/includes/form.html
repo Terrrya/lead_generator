@@ -1,0 +1,11 @@
+{% load crispy_forms_tags %}
+
+{% if form.errors %}
+    <p class="text-danger">Error</p>
+{% endif %}
+
+<form method="post" {% if request.path == "/accounts/login/" %}action="{% url 'login' %}"{% endif %}>
+  {% csrf_token %}
+  {% crispy form %}
+{#  <input type="submit" value="Submit" class="btn btn-primary" >#}
+</form>
